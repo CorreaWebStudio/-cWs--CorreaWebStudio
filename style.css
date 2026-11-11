@@ -1,0 +1,158 @@
+:root{
+  --bg:#F4F6FB; --card:#FFFFFF; --ink:#12142B; --soft:#555B78;
+  --blue:#2B3BFF; --blue-ink:#FFFFFF; --hi:#FFE14D; --line:#D9DEEE; --wpp:#17A34A;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0F1120; --card:#181B33; --ink:#F1F2FA; --soft:#A3A8C7; --blue:#6C79FF; --blue-ink:#0F1120; --line:#2A2E52;}
+}
+:root[data-theme="dark"]{--bg:#0F1120; --card:#181B33; --ink:#F1F2FA; --soft:#A3A8C7; --blue:#6C79FF; --blue-ink:#0F1120; --line:#2A2E52;}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:10px;background:var(--bg);color:var(--ink);font:400 17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;margin:0;letter-spacing:-.02em;line-height:1.05}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+header{padding:18px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font:800 24px 'Bricolage Grotesque',sans-serif}
+.brand .mono{color:orange;}
+.links{display:flex;gap:22px;font-weight:500;color:var(--soft)}
+.links a:hover{color:var(--ink)}
+@media (max-width:720px){.links{display:none}}
+
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;border:2px solid var(--ink);transition:transform .15s,box-shadow .15s}
+.btn-main{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.btn-main:hover{color:white;transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--bg)}
+.btn-sm{padding:10px 18px;font-size:15px}
+.out{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;border:2px solid var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:48px 0 72px}
+h1{font-size:clamp(40px,6.4vw,62px);font-weight:800}
+mark{background:linear-gradient(transparent 58%,var(--hi) 58%);color:inherit;padding:0 .08em}
+.lead{color:var(--soft);font-size:19px;max-width:46ch;margin:22px 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.who{margin:0 0 14px;font-weight:700;color:var(--blue)}
+
+/* phone mockup */
+.phone{justify-self:center;width:min(290px,100%);border:3px solid var(--ink);border-radius:38px;background:var(--card);padding:16px;box-shadow:10px 10px 0 var(--blue);transform:rotate(2.5deg)}
+.phone .bar{width:70px;height:6px;border-radius:9px;background:var(--line);margin:0 auto 14px}
+.phone h4{font:800 20px 'Bricolage Grotesque',sans-serif;margin:0 0 2px}
+.phone small{color:var(--soft);font-size:13px}
+.item{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.item b{font-weight:700}
+.item span{white-space:nowrap;font-weight:700}
+.fake-btn{display:flex;justify-content:center;gap:8px;margin-top:14px;text-align:center;background:var(--wpp);color:#fff;font-weight:700;padding:12px;border-radius:14px}
+.fake-btn svg{width:28px;height:28px;flex-shrink:0;}
+
+/* sections */
+section{padding:56px 0}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;margin-bottom:28px;max-width:20ch}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:22px;padding:26px}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{margin:0;color:var(--soft);font-size:16px}
+.card:nth-child(2){border-radius:22px 22px 22px 60px}
+.card:nth-child(3){border-radius:60px 22px 22px 22px}
+
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;border-top:4px solid var(--blue);padding-top:14px}
+.steps li::before{content:counter(s);font:800 34px 'Bricolage Grotesque',sans-serif;color:var(--blue);display:block}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--soft);font-size:15px}
+
+.project{background:var(--blue);color:var(--blue-ink);border-radius:32px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.project h2{margin-bottom:14px;max-width:none}
+.project p{margin:0 0 20px;max-width:52ch;opacity:.92}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tags span{border:2px solid currentColor;border-radius:999px;padding:3px 13px;font-size:14px;font-weight:500}
+.project .btn{background:var(--hi);color:#12142B;border-color:var(--hi)}
+.place{font-weight:700;margin-bottom:10px;display:block}
+.stat{background:var(--card);color:var(--ink);border-radius:22px;padding:24px;text-align:center}
+.stat b{display:block;font:800 30px/1.1 'Bricolage Grotesque',sans-serif;margin-bottom:6px}
+.stat span{color:var(--soft);font-size:15px}
+
+/* pizzaria */
+.project.pizza{border-radius:90px 32px 90px 32px}
+.pizza .place{color:var(--hi)}
+.comanda{
+  position:relative;background:var(--card);color:var(--ink);
+  border:3px dashed #E63B2E;border-radius:22px;
+  padding:22px;transform:rotate(2deg);
+}
+.comanda::before{content:"🍕";position:absolute;top:-22px;right:-14px;font-size:38px;transform:rotate(18deg)}
+.comanda h4{font:800 20px 'Bricolage Grotesque',sans-serif;margin:0 0 8px}
+.comanda .slot b{color:#E63B2E}
+.comanda .status{display:flex;align-items:center;gap:8px;margin-top:14px;padding:10px 12px;border-radius:14px;background:var(--wpp);color:#fff;font-weight:700;font-size:14px;line-height:1.3}
+.comanda .status i{width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0}
+@media (prefers-reduced-motion:no-preference){.comanda .status i{animation:pulso 1.6s infinite}}
+@keyframes pulso{50%{opacity:.25}}
+
+/* barbearia */
+.project + .project{margin-top:28px}
+.project.barber{
+  background:var(--ink);color:var(--bg);
+  grid-template-columns:.8fr 1.2fr;
+  border-radius:32px 90px 32px 90px;
+}
+.barber .place{color:orange}
+.barber .btn{background:orange;border-color:orange;color:#12142B}
+.agenda{
+  background:var(--card);color:var(--ink);
+  border:3px dashed orange;border-radius:22px;
+  padding:22px;transform:rotate(-2deg);
+}
+.agenda h4{font:800 20px 'Bricolage Grotesque',sans-serif;margin:0 0 8px}
+.slot{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.slot b{color:orange}
+.slot.busy{opacity:.45;text-decoration:line-through}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.about p{margin:0;font-size:19px;color:var(--soft);max-width:48ch}
+
+footer{border-top:2px solid var(--ink);padding:30px 0 90px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;color:var(--soft);font-size:15px}
+.foot a{color:#17A34A;}
+.float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--wpp);color:#fff;font-weight:700;padding:14px 20px;border-radius:999px;box-shadow:0 6px 0 rgba(0,0,0,.25);z-index:5;transition: transform .2s;}
+.float:hover{transform:scale(1.1);}
+
+@media (max-width:860px){
+  .hero,.project,.about{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .project{padding:28px}
+  .phone{transform:none}
+  .project.pizza{border-radius:60px 32px 60px 32px}
+  .comanda{transform:none}
+  .project.barber{grid-template-columns:1fr;border-radius:32px 60px 32px 60px}
+  .agenda{transform:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+@media (hover:hover) and (pointer:fine){
+  body, a, .btn{cursor:none;}
+
+  .cursor{
+    position: fixed;
+    top:0; left:0;
+    width:22px; height:22px;
+    margin:-11px 0 0 -11px;
+    border:2px solid orange;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transition:width .2s, height .2s, margin .2s, background .2s;
+  }
+  .cursor.hover{
+    width:50px; height:50px;
+    margin:-25px 0 0 -25px;
+    background:rgba(255, 2, 179, 0.445);
+  }
+}
+@media (hover:none){ .cursor{display:none;} }
